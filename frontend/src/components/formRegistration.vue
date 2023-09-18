@@ -4,25 +4,29 @@
     </div>
     <div class="d-flex align-center justify-center" style="height: 50vh">
         <v-sheet width="400" class="mx-auto">
-            <v-form @submit.prevent="handleLogin">
+            <v-form @submit.prevent="handleRegistration">
+                <v-text-field 
+                v-model="nome" label="Insert name"
+                />
+                <v-text-field 
+                v-model="cognome" label="Insert surname"
+                />
                 <v-text-field 
                 v-model="email" label="Insert email"
                 />
                 <v-text-field 
                 v-model="password" label="Insert password"
                 />
+                <v-text-field 
+                v-model="password" label="Repeat password"
+                />
                 <v-btn 
                 type="submit" 
                 color="primary" 
                 block class="mt-2">
-                    Login to portal
+                    Sign to portal
                 </v-btn>
             </v-form>
-        <div class="mt-2">
-            <p class="text-body-2">Don't have an account? 
-                <a href="formRegistration.vue">Sign Up</a>
-            </p>
-        </div>
         </v-sheet>
     </div>
 </template>
@@ -38,8 +42,8 @@ export default{
         };
     },
     methods: {
-        handleLogin(){
-            console.log("username", this.username);
+        handleRegistration(){
+            console.log("email", this.email);
             console.log("password", this.password);
         }, 
     },
