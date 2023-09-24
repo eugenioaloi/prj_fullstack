@@ -7,11 +7,11 @@
       rounded="lg"
     >
 
-    <div class="d-flex justify-center">
-        <v-card-title class="text-h5 text-md-h5 text-lg-h4">
-          {{ header }}
-        </v-card-title>
-    </div>
+      <div class="d-flex justify-center">
+          <v-card-title class="text-h5 text-md-h5 text-lg-h4">
+            {{ header }}
+          </v-card-title>
+      </div>
 
       <!--E-mail component  -->
       <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
@@ -25,7 +25,7 @@
         v-model="email"
         :rules = "[rules.emailReq]"
       />
-      
+        
       <!--Password component  -->
       <div class="text-subtitle-1 text-medium-emphasis d-flex align-center justify-space-between">
         Password
@@ -41,7 +41,7 @@
         v-model="password"
         :rules = "[rules.passwordReq]"
       />
-    
+      
       <!--Button component  -->
       <v-btn
         block
@@ -52,17 +52,17 @@
         @click="handleLogin"
       >
       Log In </v-btn>
-  
-      <v-card-text class="text-center">
-        <a
-          class="text-blue text-decoration-none"
-          href="#"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Sign up now <v-icon icon="mdi-chevron-right"></v-icon>
-        </a>
-      </v-card-text>
+
+        <v-card-text class="text-center">
+          <a
+            class="text-blue text-decoration-none"
+            href="#"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Sign up now <v-icon icon="mdi-chevron-right"></v-icon>
+          </a>
+        </v-card-text>
     </v-card>
   </div>
 </template>
@@ -83,7 +83,8 @@ export default {
     handleLogin(){
       console.log("email ", this.email);
       console.log("psw ", this.password);
-    }
+    },
+    
   },
   computed:{
     formValid(){
