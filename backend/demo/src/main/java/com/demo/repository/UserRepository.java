@@ -1,8 +1,5 @@
 package com.demo.repository;
 
-import java.util.List;
-
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.demo.model.User;
@@ -18,7 +15,10 @@ public interface UserRepository extends CrudRepository<User,Integer> {
 		List<User> getUserEmailPsw();
 	*/
 	
+	User findByEmail(String email);
+	
 	boolean existsByEmail(String email);
+	boolean existsByPassword(String password);
 	
 
 }

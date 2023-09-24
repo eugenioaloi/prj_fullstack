@@ -9,10 +9,10 @@ public class UserInfo {
 	private int id;
 	
 	@JsonInclude(Include.NON_NULL)
-	private String name;
+	private String user_name;
 	
 	@JsonInclude(Include.NON_NULL)
-	private String surname;
+	private String user_surname;
 	
 	@JsonInclude(Include.NON_NULL)
 	private String email;
@@ -28,20 +28,20 @@ public class UserInfo {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getUser_surname() {
+		return user_surname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setUser_surname(String user_surname) {
+		this.user_surname = user_surname;
 	}
 
 	public String getEmail() {

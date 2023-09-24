@@ -15,11 +15,11 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column(name="name")
-	private String nome;
+	@Column(name="user_name")
+	private String user_name;
 	
-	@Column(name="surname")
-	private String surname;
+	@Column(name="user_surname")
+	private String user_surname;
 	
 	@Column(name="email")
 	private String email;
@@ -35,20 +35,20 @@ public class User {
 		this.id = id;
 	}
 
-	public String getNome() {
-		return nome;
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
-	public String getSurname() {
-		return surname;
+	public String getUser_surname() {
+		return user_surname;
 	}
 
-	public void setSurname(String surname) {
-		this.surname = surname;
+	public void setUser_surname(String user_surname) {
+		this.user_surname = user_surname;
 	}
 
 	public String getEmail() {

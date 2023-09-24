@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <v-card
       class="mx-auto pa-12 pb-8"
       elevation="8"
@@ -10,7 +9,7 @@
 
     <div class="d-flex justify-center">
         <v-card-title class="text-h5 text-md-h5 text-lg-h4">
-          Login to portal
+          {{ header }}
         </v-card-title>
     </div>
 
@@ -24,6 +23,7 @@
         prepend-inner-icon="mdi-email-outline"
         variant="outlined"
         v-model="email"
+        :rules = "[rules.emailReq]"
       />
       
       <!--Password component  -->
@@ -32,13 +32,14 @@
       </div>
       <v-text-field
         :append-inner-icon="visible ? 'mdi-eye-off' : 'mdi-eye'"
-        :type="visible ? 'text' : 'password'"
+        :type="visible ? '' : 'password'"
         density="compact"
         placeholder="Enter your password"
         prepend-inner-icon="mdi-lock-outline"
         variant="outlined"
         @click:append-inner="visible = !visible"
         v-model="password"
+        :rules = "[rules.passwordReq]"
       />
     
       <!--Button component  -->
@@ -48,7 +49,7 @@
         color="green"
         size="large"
         :disabled ="formValid"
-        @click="formSubmit"
+        @click="handleLogin"
       >
       Log In </v-btn>
   
@@ -69,12 +70,17 @@
 <script>
 export default {
   data: () => ({
-    visible: false,
+    header: 'Login to portal',
     email: "",
     password: "",
+    visible: false,
+    rules:{
+      emailReq: req => !!req || "Email is required",
+      passwordReq: req => !!req || "Password is required"
+    }
   }),
   methods:{
-    formSubmit(){
+    handleLogin(){
       console.log("email ", this.email);
       console.log("psw ", this.password);
     }
@@ -84,6 +90,5 @@ export default {
       return this.email =="" || this.password ==""?true:false
     },
   }
-  
 }
 </script>

@@ -37,4 +37,34 @@ public class UserService implements IUserService {
 		return repo.existsByEmail(email);
 	}
 
+	@Override
+	public boolean existPassw(String password) {
+		return repo.existsByPassword(password) ;
+	}
+
+	@Override
+	public UserInfo getUser(String email, String password) {
+		if(existEmail(email)) {
+			User user = repo.findByEmail(email);
+			boolean flag = user.getPassword().contains(password);
+			if(flag) {
+				UserInfo userInfo = new UserInfo();
+				BeanUtils.copyProperties(user, userInfo);
+				return userInfo;				
+			}			
+		}
+		System.out.print("non esiste mail o psw");
+		return null;
+	}
+
+	@Override
+	public boolean registerUser(User user) {
+		boolean flag = existEmail(user.getEmail());
+		if(!flag) {
+			repo.save(user);
+			return true;
+		}
+		return false;
+	}
+
 }
